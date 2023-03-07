@@ -1,0 +1,19 @@
+{
+  "name": "03_bases_node",
+  "version": "0.0.1",
+  "description": "simple tabla de multiplicar con archivo de txt",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base3": "node app --base=3"
+  },
+  "author": "yadev",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
