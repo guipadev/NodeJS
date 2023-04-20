@@ -96,3 +96,24 @@ npm i --save sequelize
 Buscamos la última versión y buscamos el comado para instalar driver de acuerdo a BD utilizada
 
 npm i --save mysql2
+
+## Consultas end point
+
+### Actualizar
+PUT - http://localhost:8000/api/usuarios/1
+JSON
+{"nombre":"Melissa"}
+
+### Eliminar
+DELETE - http://localhost:8000/api/usuarios/5
+### Consulta usuario especifico
+GET - http://localhost:8000/api/usuarios/3
+### Consulta todos los usuarios
+GET - http://localhost:8000/api/usuarios
+### Crear un usuario
+POST - http://localhost:8000/api/usuarios
+JSON
+{
+  "nombre": "Edwar Flimen",
+  "email": "e@gmail.com"
+}
