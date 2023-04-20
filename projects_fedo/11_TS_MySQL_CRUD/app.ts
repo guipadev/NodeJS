@@ -1,3 +1,12 @@
-export const name = 'Fercho';
+import dotenv from 'dotenv';
+import Server from './models/server';
 
-console.log(name);
+// Conf. dot.env
+dotenv.config();
+
+const server = new Server();
+
+server.listen();
+
+//export const name = 'Fercho';
+//console.log(name);
