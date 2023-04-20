@@ -48,3 +48,51 @@ nodemon dist/app.js
 ### Prueba contenido estatico
 Navegador: http://localhost:8000/
 "Acceso denegado"
+
+## Base de datos MySQL
+
+### Crear DB
+CREATE DATABASE node;
+
+### Crear tabla
+CREATE TABLE node.usuarios (
+  id INT NOT NULL,
+  nombre VARCHAR(65) NOT NULL,
+  email VARCHAR(65) NOT NULL,
+  estado VARCHAR(45) NOT NULL DEFAULT '1',
+  PRIMARY KEY (id));
+
+### Id debe ser autoincremental
+ALTER TABLE node.usuarios 
+CHANGE COLUMN id id INT NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN estado estado VARCHAR(45) NULL DEFAULT '1' ;
+
+### El correo debe ser unico e irrepetible
+alter table node.usuarios
+  add constraint UQ_usuarios_email
+  unique (email);
+
+### Modificar nombre tabla
+ALTER TABLE node.usuarios 
+RENAME TO  node.Usuarios;
+
+### Registrar usuarios
+INSERT INTO node.usuarios (id, nombre, email, estado) VALUES ('1', 'Erika', 'e@gmail.com', '1');
+INSERT INTO node.usuarios (id, nombre, email, estado) VALUES ('2', 'Oscar', 'o@gmail.com', '0');
+INSERT INTO node.usuarios (id, nombre, email, estado) VALUES ('3', 'Bianca', 'b@gmail.com', '1');
+INSERT INTO node.usuarios (id, nombre, email, estado) VALUES ('4', 'Ermes', 'er@gmail.com', '0');
+
+### Adicionar campos para funcionamiento del ORM correctamente
+ALTER TABLE node.usuarios 
+ADD COLUMN createdAt timestamp NULL AFTER estado,
+ADD COLUMN updatedAt timestamp NULL AFTER createdAt;
+
+
+### Buscar e instalar Sequelize ORM
+Parecido a Mongoose solo que trabaja con Postgress, MySQL, MariaDB, SQLite, SQL Server...
+
+npm i --save sequelize
+
+Buscamos la última versión y buscamos el comado para instalar driver de acuerdo a BD utilizada
+
+npm i --save mysql2
